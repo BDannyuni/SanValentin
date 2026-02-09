@@ -83,7 +83,20 @@
             box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
         }
 
-        /* Estilo para el "De parte de" */
+        /* Botón para reiniciar */
+        .reset-btn {
+            margin-top: 20px;
+            background-color: white;
+            color: #ff4d4d;
+            border: 2px solid #ff4d4d;
+            font-size: 1em;
+            padding: 8px 20px;
+        }
+        
+        .reset-btn:hover {
+            background-color: #ffe6e6;
+        }
+
         .sender {
             font-size: 0.9em;
             color: #999;
@@ -133,10 +146,11 @@
         </div>
         <h1>¡Siiiii! ❤️</h1>
         <div class="final-message">
-            <h2>Nos vemos el 14 de febrero <br> a las 6 pm</h2>
-            
+            <h2>Nos vemos el 14 de febrero <br> a las 6 pm</h2><br>
             <p class="love-note">¡Sabía que dirías que sí! Me haces muy feliz. 🥰</p>
         </div>
+
+        <button class="reset-btn" onclick="resetPage()">↺ Volver al inicio</button>
     </div>
 
     <script>
@@ -176,6 +190,29 @@
             document.getElementById('questionScreen').style.display = 'none';
             document.getElementById('successScreen').style.display = 'block';
             document.body.style.backgroundColor = "#ffcccc";
+        }
+
+        function resetPage() {
+            // Regresa a la pantalla de pregunta
+            document.getElementById('successScreen').style.display = 'none';
+            document.getElementById('questionScreen').style.display = 'block';
+            
+            // Reinicia las variables
+            noCount = 0;
+            
+            // Reinicia estilos del botón Sí
+            siBtn.style.fontSize = '1.2em';
+            siBtn.style.padding = '10px 30px';
+            
+            // Reinicia texto del botón No
+            noBtn.innerText = 'No';
+            noBtn.style.transform = 'none';
+            
+            // Reinicia el orden de los botones
+            btnContainer.style.flexDirection = 'row';
+
+            // Regresa el color de fondo original
+            document.body.style.background = 'linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%)';
         }
     </script>
 
