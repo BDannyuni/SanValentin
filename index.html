@@ -16,12 +16,12 @@
             min-height: 100vh;
             background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%);
             font-family: 'Nunito', sans-serif;
-            overflow: hidden; /* Evita scroll si el botón crece mucho */
+            overflow: hidden;
             text-align: center;
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
@@ -35,19 +35,20 @@
             color: #ff4d4d;
             font-size: 2.5em;
             margin-bottom: 10px;
+            margin-top: 0;
         }
 
         p {
             font-size: 1.3em;
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
         }
 
         .gif-container img {
             width: 150px;
             height: auto;
             border-radius: 10px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .buttons {
@@ -56,6 +57,7 @@
             align-items: center;
             gap: 20px;
             flex-wrap: wrap;
+            margin-bottom: 20px;
         }
 
         button {
@@ -81,24 +83,29 @@
             box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
         }
 
-        /* Estilo para el mensaje final */
+        /* Estilo para el "De parte de" */
+        .sender {
+            font-size: 0.9em;
+            color: #999;
+            font-style: italic;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+
         .hidden {
             display: none;
         }
 
         .final-message h2 {
             color: #ff4d4d;
-            font-size: 2em;
+            font-size: 1.8em;
+            margin-bottom: 10px;
         }
-
-        .tiktok-btn {
-            margin-top: 20px;
-            background-color: #000;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 20px;
-            display: inline-block;
+        
+        .love-note {
+            font-size: 1.1em;
+            color: #d63031;
             font-weight: bold;
         }
     </style>
@@ -116,6 +123,8 @@
             <button id="siBtn" onclick="aceptar()">Sí</button>
             <button id="noBtn" onclick="negar()">No</button>
         </div>
+
+        <p class="sender">De parte de: <b>Brandon</b></p>
     </div>
 
     <div class="container hidden" id="successScreen">
@@ -124,9 +133,10 @@
         </div>
         <h1>¡Siiiii! ❤️</h1>
         <div class="final-message">
-            <h2>Nos vemos el 14 de febrero a las 6 pm</h2>
+            <h2>Nos vemos el 14 de febrero <br> a las 6 pm</h2>
+            
+            <p class="love-note">¡Sabía que dirías que sí! Me haces muy feliz. 🥰</p>
         </div>
-        <br>
     </div>
 
     <script>
@@ -137,33 +147,27 @@
 
         function negar() {
             noCount++;
-            
-            // Hacer crecer el botón Sí
             let currentSize = parseFloat(window.getComputedStyle(siBtn).fontSize);
             let currentPadding = parseFloat(window.getComputedStyle(siBtn).paddingTop);
             
             siBtn.style.fontSize = (currentSize * 1.3) + 'px';
             siBtn.style.padding = (currentPadding * 1.3) + 'px ' + (currentPadding * 3) + 'px';
 
-            // Frases para el botón No
             const frases = [
                 "No", 
-                "¿Estás segura?", 
+                "¿Segura?", 
                 "¡Piénsalo bien!", 
                 "¡Por favor!", 
-                "¡Mira que me pongo triste!", 
+                "¡Mira que lloro!", 
                 "¡Di que sí!"
             ];
 
-            // Cambiar texto del botón No (si hay frase disponible)
             if (noCount < frases.length) {
                 noBtn.innerText = frases[noCount];
             }
 
-            // Cambiar de lugar los botones después de 4 intentos
             if (noCount >= 4) {
                 btnContainer.style.flexDirection = 'row-reverse';
-                // Opcional: mover el botón "No" aleatoriamente un poco para confundir
                 noBtn.style.transform = `translate(${Math.random()*50 - 25}px, ${Math.random()*50 - 25}px)`;
             }
         }
@@ -171,8 +175,6 @@
         function aceptar() {
             document.getElementById('questionScreen').style.display = 'none';
             document.getElementById('successScreen').style.display = 'block';
-            
-            // Efecto de confeti simple (opcional visual)
             document.body.style.backgroundColor = "#ffcccc";
         }
     </script>
