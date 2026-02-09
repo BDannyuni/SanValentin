@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Carla Michelle ❤️</title>
+    <title>Dueña del Cielo - Carla Michelle ❤️</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;700&display=swap');
 
@@ -14,48 +14,92 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%);
+            background: linear-gradient(to bottom, #7eb6e7 0%, #b9e2f5 100%);
             font-family: 'Nunito', sans-serif;
             overflow: hidden;
             text-align: center;
         }
 
+        /* --- NUBES ANIMADAS --- */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 100px;
+            opacity: 0.8;
+            z-index: 0;
+            animation: move linear infinite;
+        }
+
+        .cloud::after, .cloud::before {
+            content: '';
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .cloud:nth-child(1) { width: 200px; height: 60px; top: 10%; left: -20%; animation-duration: 25s; }
+        .cloud:nth-child(1)::after { width: 100px; height: 100px; top: -50px; left: 30px; }
+        .cloud:nth-child(1)::before { width: 120px; height: 120px; top: -70px; left: 70px; }
+
+        .cloud:nth-child(2) { width: 150px; height: 45px; top: 30%; left: -25%; animation-duration: 35s; opacity: 0.5; }
+        .cloud:nth-child(2)::after { width: 70px; height: 70px; top: -35px; left: 20px; }
+        .cloud:nth-child(2)::before { width: 90px; height: 90px; top: -45px; left: 50px; }
+
+        .cloud:nth-child(3) { width: 250px; height: 75px; top: 70%; left: -30%; animation-duration: 45s; }
+        .cloud:nth-child(3)::after { width: 120px; height: 120px; top: -60px; left: 40px; }
+        .cloud:nth-child(3)::before { width: 140px; height: 140px; top: -80px; left: 90px; }
+
+        @keyframes move {
+            from { transform: translateX(-100px); }
+            to { transform: translateX(120vw); }
+        }
+
+        /* --- CONTENEDOR --- */
         .container {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(5px);
             padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             max-width: 90%;
             width: 400px;
             position: relative;
+            z-index: 10;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         h1 {
             font-family: 'Pacifico', cursive;
-            color: #ff4d4d;
-            font-size: 2em;
+            color: #2c3e50;
+            font-size: 2.2em;
             margin-bottom: 10px;
             margin-top: 0;
         }
 
+        .album-tag {
+            background: #2980b9;
+            color: white;
+            font-size: 0.7em;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
         p {
-            font-size: 1.3em;
-            color: #555;
+            font-size: 1.2em;
+            color: #444;
             margin-bottom: 20px;
         }
 
-        .gif-container img {
-            width: 150px;
+        .gif-container img, .gif-container-2 img {
+            width: 180px;
             height: auto;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-bottom: 15px;
-        }
-
-        .gif-container-2 img {
-            width: 250px;
-            height: auto;
-            border-radius: 10px;
-            margin-bottom: 15px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
         }
 
         .buttons {
@@ -69,7 +113,7 @@
 
         button {
             padding: 10px 30px;
-            font-size: 1.2em;
+            font-size: 1.1em;
             border: none;
             border-radius: 50px;
             cursor: pointer;
@@ -79,67 +123,59 @@
         }
 
         #siBtn {
-            background-color: #2ecc71;
+            background-color: #3498db;
             color: white;
-            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.4);
         }
 
         #noBtn {
-            background-color: #e74c3c;
+            background-color: #bdc3c7;
             color: white;
-            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
         }
 
         .reset-btn {
             margin-top: 20px;
             background-color: white;
-            color: #ff4d4d;
-            border: 2px solid #ff4d4d;
-            font-size: 1em;
+            color: #3498db;
+            border: 2px solid #3498db;
+            font-size: 0.9em;
             padding: 8px 20px;
-        }
-        
-        .reset-btn:hover {
-            background-color: #ffe6e6;
         }
 
         .sender {
             font-size: 0.9em;
-            color: #999;
+            color: #7f8c8d;
             font-style: italic;
             margin-top: 30px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #ddd;
             padding-top: 10px;
         }
 
-        .hidden {
-            display: none;
-        }
+        .hidden { display: none; }
 
-        .final-message h2 {
-            color: #ff4d4d;
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-        
         .love-note {
-            font-size: 1.1em;
-            color: #d63031;
+            font-size: 1.2em;
+            color: #2980b9;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
 
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+
     <div class="container" id="questionScreen">
+        <div class="album-tag">Dueño del Cielo ☁️</div>
         <div class="gif-container">
             <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3Z5eGk2aG55Z3Z5eGk2aG55Z3Z5eGk2aG55ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/cLS1cfxvGOPVpf9g3y/giphy.gif" alt="Cute Bear">
         </div>
         <h1>Carla Michelle</h1>
-        <p>¿Quieres ser mi San Valentín?</p>
+        <p>¿Me dejas ser el dueño de tu cielo este San Valentín?</p>
         
         <div class="buttons" id="btnContainer">
-            <button id="siBtn" onclick="aceptar()">Sí</button>
+            <button id="siBtn" onclick="aceptar()">¡Sí, acepto!</button>
             <button id="noBtn" onclick="negar()">No</button>
         </div>
 
@@ -147,16 +183,18 @@
     </div>
 
     <div class="container hidden" id="successScreen">
+        <div class="album-tag">Humbe Mood ✨</div>
         <div class="gif-container-2">
-            <img src="https://i.kym-cdn.com/photos/images/newsfeed/003/103/134/ae9.gif"  alt="Celebration">
+            <img src="https://i.kym-cdn.com/photos/images/newsfeed/003/103/134/ae9.gif" alt="Celebration">
         </div>
         <h1>¡ESOOOO! 🎉</h1>
         <div class="final-message">
-            <h2>Nos vemos el 14 de febrero </h2><br>
-            <p class="love-note">¡Graciaaaaas! 🥳</p>
+            <p class="love-note">"Tú eres la dueña de mi cielo..."</p>
+            <h2>Cita confirmada este 14</h2>
+            <p>¡Gracias por decir que sí! 🥳</p>
         </div>
 
-        <button class="reset-btn" onclick="resetPage()">↺ Volver al inicio</button>
+        <button class="reset-btn" onclick="resetPage()">↺ Volver a intentar</button>
     </div>
 
     <script>
@@ -170,51 +208,36 @@
             let currentSize = parseFloat(window.getComputedStyle(siBtn).fontSize);
             let currentPadding = parseFloat(window.getComputedStyle(siBtn).paddingTop);
             
-            siBtn.style.fontSize = (currentSize * 1.3) + 'px';
-            siBtn.style.padding = (currentPadding * 1.3) + 'px ' + (currentPadding * 3) + 'px';
+            siBtn.style.fontSize = (currentSize * 1.2) + 'px';
+            siBtn.style.padding = (currentPadding * 1.1) + 'px ' + (currentPadding * 2.5) + 'px';
 
-            const frases = [
-                "No", 
-                "¿Segura?", 
-                "¡Piénsalo bien!", 
-                "¡Por favor!", 
-                "¡Mira que lloro!", 
-                "¡Di que sí!"
-            ];
+            const frases = ["No", "¿Segura?", "¡Piénsalo!", "¡Humbe lloraría!", "¡Di que sí!", "¡No hay salida!"];
+            if (noCount < frases.length) noBtn.innerText = frases[noCount];
 
-            if (noCount < frases.length) {
-                noBtn.innerText = frases[noCount];
-            }
-
-            if (noCount >= 4) {
+            if (noCount >= 3) {
                 btnContainer.style.flexDirection = 'row-reverse';
-                noBtn.style.transform = `translate(${Math.random()*50 - 25}px, ${Math.random()*50 - 25}px)`;
+                noBtn.style.transform = `translate(${Math.random()*40 - 20}px, ${Math.random()*40 - 20}px)`;
             }
         }
 
         function aceptar() {
             document.getElementById('questionScreen').style.display = 'none';
             document.getElementById('successScreen').style.display = 'block';
-            document.body.style.backgroundColor = "#ffcccc";
+            document.body.style.background = "linear-gradient(to bottom, #ffffff 0%, #b9e2f5 100%)";
         }
 
         function resetPage() {
             document.getElementById('successScreen').style.display = 'none';
             document.getElementById('questionScreen').style.display = 'block';
             noCount = 0;
-            siBtn.style.fontSize = '1.2em';
+            siBtn.style.fontSize = '1.1em';
             siBtn.style.padding = '10px 30px';
             noBtn.innerText = 'No';
             noBtn.style.transform = 'none';
             btnContainer.style.flexDirection = 'row';
-            document.body.style.background = 'linear-gradient(135deg, #ffe6e6 0%, #ffb3b3 100%)';
+            document.body.style.background = 'linear-gradient(to bottom, #7eb6e7 0%, #b9e2f5 100%)';
         }
     </script>
 
 </body>
 </html>
-
-
-
-
-
