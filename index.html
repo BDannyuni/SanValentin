@@ -174,7 +174,7 @@
 <body>
 
     <audio id="musicaFondo" loop>
-        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        <source src="https://www.youtube.com/watch?v=dkHE3B3R2rk&list=RDdkHE3B3R2rk&start_radio=1" type="audio/mpeg">
         Tu navegador no soporta el audio.
     </audio>
 
@@ -216,7 +216,7 @@
 
     <script>
         const musica = document.getElementById('musicaFondo');
-        musica.volume = 0.2; // Volumen bajo (20%)
+        musica.volume = 0.1; // Volumen bajo (20%)
 
         // Función para reproducir música al primer clic (Requerido por navegadores)
         document.body.addEventListener('click', function() {
@@ -251,7 +251,7 @@
             document.body.style.background = "linear-gradient(to bottom, #ffffff 0%, #b9e2f5 100%)";
             
             // Subir un poquito el volumen al aceptar (opcional)
-            musica.volume = 0.4;
+            musica.volume = 0.3;
         }
 
         function resetPage() {
@@ -264,9 +264,10 @@
             noBtn.style.transform = 'none';
             btnContainer.style.flexDirection = 'row';
             document.body.style.background = 'linear-gradient(to bottom, #7eb6e7 0%, #b9e2f5 100%)';
-            musica.volume = 0.2;
+            musica.volume = 0.1;
         }
     </script>
 
 </body>
 </html>
+
