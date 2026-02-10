@@ -18,6 +18,7 @@
             font-family: 'Nunito', sans-serif;
             overflow: hidden;
             text-align: center;
+            cursor: pointer;
         }
 
         /* --- NUBES ANIMADAS --- */
@@ -158,9 +159,26 @@
             color: #2980b9;
             font-weight: bold;
         }
+
+        /* Indicador de audio discreto */
+        .audio-info {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            font-size: 0.7em;
+            color: #2980b9;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
+
+    <audio id="musicaFondo" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Tu navegador no soporta el audio.
+    </audio>
+
+    <div class="audio-info">🎵 Humbe - Amor de Cine (0.2 vol)</div>
 
     <div class="cloud"></div>
     <div class="cloud"></div>
@@ -183,20 +201,28 @@
     </div>
 
     <div class="container hidden" id="successScreen">
-        <div class="album-tag">"Quiero ser <br> Algo Maaaas"</div>
+        <div class="album-tag">"Quiero ser algo más"</div>
         <div class="gif-container-2">
             <img src="https://i.kym-cdn.com/photos/images/newsfeed/003/103/134/ae9.gif" alt="Celebration">
         </div>
         <div class="final-message">
-            <p class="love-note">"Y si fueras mía <br> Te llenaría todo el día de sonrisas <br> Hasta en mis sueños tu boca presumiría <br> Quién diría <br> A dónde llegaría"</p>
+            <p class="love-note">"Y si fueras mía <br> Te llenaría todo el día de sonrisas..."</p>
             <h2>Te veo el 14</h2>
-            <p>¡Gracias! 🥳</p>
+            <p>¡Gracias por ser mi San Valentín! 🥳</p>
         </div>
 
         <button class="reset-btn" onclick="resetPage()">↺ Volver a intentar</button>
     </div>
 
     <script>
+        const musica = document.getElementById('musicaFondo');
+        musica.volume = 0.2; // Volumen bajo (20%)
+
+        // Función para reproducir música al primer clic (Requerido por navegadores)
+        document.body.addEventListener('click', function() {
+            musica.play();
+        }, { once: true });
+
         let noCount = 0;
         const siBtn = document.getElementById('siBtn');
         const noBtn = document.getElementById('noBtn');
@@ -223,6 +249,9 @@
             document.getElementById('questionScreen').style.display = 'none';
             document.getElementById('successScreen').style.display = 'block';
             document.body.style.background = "linear-gradient(to bottom, #ffffff 0%, #b9e2f5 100%)";
+            
+            // Subir un poquito el volumen al aceptar (opcional)
+            musica.volume = 0.4;
         }
 
         function resetPage() {
@@ -235,9 +264,9 @@
             noBtn.style.transform = 'none';
             btnContainer.style.flexDirection = 'row';
             document.body.style.background = 'linear-gradient(to bottom, #7eb6e7 0%, #b9e2f5 100%)';
+            musica.volume = 0.2;
         }
     </script>
 
 </body>
 </html>
-
